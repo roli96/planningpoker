@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ScrumPoker</string>
+    <string name="initialization">AlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswaAlmaswa</string>
+    <string name="sessionOwnerTextView">Your nickname:</string>
+    <string name="sessionOwnerNameEditText">Bunyos Pityu</string>
+    <string name="sessionNameTextView">Session name:</string>
+    <string name="sessionNameEditText">Budosek</string>
+    <string name="createButtonText">Create</string>
+    <string name="sessionID">Session id:</string>
+    <string name="sendButton">Send</string>
+    <string name="leaveButton">Leave Session</string>
+    <string name="egy">1</string>
+    <string name="ketto">2</string>
+    <string name="harom">3</string>
+    <string name="negy">4</string>
+    <string name="ot">5</string>
+</resources>

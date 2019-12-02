@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1060888800926",
+    "firebase_url": "https://scrum-4424f.firebaseio.com",
+    "project_id": "scrum-4424f",
+    "storage_bucket": "scrum-4424f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060888800926:android:60eb7e6f61da296562158f",
+        "android_client_info": {
+          "package_name": "com.example.scrumpokermy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060888800926-f0l7u6i008jfg8lqk0horpbrvqgvs7tm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6XGA9YOIocNey2nExNGGYxqI0yMZuccg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060888800926-f0l7u6i008jfg8lqk0horpbrvqgvs7tm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
