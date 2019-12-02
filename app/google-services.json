@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "261798106398",
+    "firebase_url": "https://my-scrump-app.firebaseio.com",
+    "project_id": "my-scrump-app",
+    "storage_bucket": "my-scrump-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261798106398:android:68e3056d630798418a250f",
+        "android_client_info": {
+          "package_name": "com.example.scrumpokermy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261798106398-d04u2gl76k3iq0kqt0b6ig0fi8jnaj8s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.scrumpokermy",
+            "certificate_hash": "c5603f496c1a497b7601132b61ad7bdb78c580c1"
+          }
+        },
+        {
+          "client_id": "261798106398-kfc7ma4ghq8eovsi1q2ppvihh48ilmv7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHDPZy0qJD18oLLVG6V5zyVuxFCi6XOKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261798106398-kfc7ma4ghq8eovsi1q2ppvihh48ilmv7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -35,11 +35,11 @@ public class EmployeeActivity extends AppCompatActivity {
         fb =new FirebaseRealtimeDatabaseHelper(sessionID);
 
         String IdQuestion=getIntent().getStringExtra("IdQuestion");
-        counter=Integer.parseInt(IdQuestion);
+        counter=0;
 
         new CountDownTimer(2000, 1000) {  //polling slow-down
             public void onFinish() {
-                questionText.setText(fb.getSession().getQuestions().get(counter).getQuestion());
+                questionText.setText(fb.getSession().getQuestions().get(Integer.parseInt(fb.getSession().getActiv())-1).getQuestion());
             }
 
             public void onTick(long millisUntilFinished) {
@@ -105,18 +105,24 @@ public class EmployeeActivity extends AppCompatActivity {
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {   //update rate
+                if(counter==0){
                 fb.addQuestionRating(sessionID,employeeName,fb.getSession().getQuestions().get(counter).getQuestionId(),textView.getText().toString());
                 counter++;
                 Toast.makeText(EmployeeActivity.this, "Valasz elkuldve", Toast.LENGTH_SHORT).show();
                 textView.setText("");
-                if (counter<fb.getSession().getQuestions().size()){
+                counter++;}
+                else {
+                    Toast.makeText(EmployeeActivity.this, "Mar Valszolt", Toast.LENGTH_SHORT).show();
+                }
+
+               /* if (counter<fb.getSession().getQuestions().size()){
                     questionText.setText(fb.getSession().getQuestions().get(counter).getQuestion());
                 }
                 else{
 
                     Toast.makeText(EmployeeActivity.this, "Nincs tobb kerdes", Toast.LENGTH_SHORT).show();
 
-                }
+                }*/
 
 
             }

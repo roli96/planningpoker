@@ -73,7 +73,6 @@ public class CreateSessionActivity extends AppCompatActivity {
         mDatabaseReference.child(String.valueOf(++lastKey)).child("ownerName").setValue(sessionOwnerNameEditText.getText().toString());
         mDatabaseReference.child(String.valueOf(lastKey)).child("sessionName").setValue(sessionNameEditText.getText().toString());
         mDatabaseReference.child(String.valueOf(lastKey)).child("sessionId").setValue(lastKey);
-        mDatabaseReference.child(String.valueOf(lastKey)).child("activ").setValue(lastKey);
     }
 
     private void getSessionLastKey() //search last session id

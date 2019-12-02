@@ -21,6 +21,8 @@ import com.example.scrumpoker.Fragment.Question_Fragmant;
 import com.example.scrumpoker.Objects.FirebaseRealtimeDatabaseHelper;
 import com.example.scrumpoker.Objects.Question;
 import com.example.scrumpoker.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Owner_Start extends AppCompatActivity implements Question_Fragmant.OnFragmentInteractionListener{
@@ -33,6 +35,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
     private TextView questionView;
     private Button viewrate;
     private EditText IdEditText;
+    private DatabaseReference mDatabaseReference;
     FirebaseRealtimeDatabaseHelper fbdb;
     int a=0;
 
@@ -46,6 +49,8 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
     inicialize();
 
     Intent intent = getIntent();
+
+    mDatabaseReference = FirebaseDatabase.getInstance().getReference("SESSION");
 
     String s1 = intent.getStringExtra("com.example.scrumpoker.ownerName");
 
@@ -81,7 +86,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
             String Text=newquestionEditText.getText().toString();
             int qid = fbdb.getSession().getQuestions().size();
             fbdb.addQuestion(String.valueOf(s2),new Question(String.valueOf(qid+1),"ddd",newquestionEditText.getText().toString()));
-            fbdb.setSession(String.valueOf(s2),);
+            mDatabaseReference.child(String.valueOf(s2)).child("activ").setValue(IdEditText.getText().toString());///set activ
             if(Text.isEmpty()){
                 Toast.makeText(getApplicationContext(),"Already Empty !!!",Toast.LENGTH_SHORT).show();
             }else{
