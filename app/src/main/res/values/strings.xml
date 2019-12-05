@@ -14,4 +14,7 @@
     <string name="harom">3</string>
     <string name="negy">4</string>
     <string name="ot">5</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

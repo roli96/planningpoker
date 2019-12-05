@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.scrumpoker.Fragment.Question_Fragmant;
+import com.example.scrumpoker.Fragment.EmployesRateFragment;
 import com.example.scrumpoker.Objects.FirebaseRealtimeDatabaseHelper;
 import com.example.scrumpoker.Objects.Question;
 import com.example.scrumpoker.R;
@@ -25,15 +25,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class Owner_Start extends AppCompatActivity implements Question_Fragmant.OnFragmentInteractionListener{
+public class Owner_Start extends AppCompatActivity implements EmployesRateFragment.OnFragmentInteractionListener {
 
     private EditText newquestionEditText;
     private Button sendButton;
     private Button exitOwner;
     private TextView owner;
-    private FrameLayout fragmentContainer;
+    private FrameLayout fragmentContainer,fragmentContainer2;
     private TextView questionView;
-    private Button viewrate;
+    private Button viewrate,QuestionButton;
     private EditText IdEditText;
     private DatabaseReference mDatabaseReference;
     FirebaseRealtimeDatabaseHelper fbdb;
@@ -118,6 +118,19 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
     });
 
 
+    QuestionButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String employees=fbdb.getSession().getQuestions().toString();
+            if(employees=="[]"){
+                Toast.makeText(getApplicationContext(),"No have question,pleas send question !!!",Toast.LENGTH_SHORT).show();
+            }else {
+                openFragment(employees);
+            }
+        }
+    });
+
+
     exitOwner.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -132,12 +145,12 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
 
     public void openFragment(String employees)
     {
-        Question_Fragmant fragment=Question_Fragmant.newInstance(employees);
+        EmployesRateFragment fragment= EmployesRateFragment.newInstance(employees);
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction transaction=fragmentManager.beginTransaction();
         transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         transaction.addToBackStack(null);
-        transaction.add(R.id.questionFragmant,fragment,"Question_Fragmant").commit();
+        transaction.add(R.id.questionFragmant,fragment,"EmployesRateFragment").commit();
 
     }
 
@@ -163,6 +176,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
         questionView=findViewById(R.id.questiondisplay);
         viewrate=findViewById(R.id.viewrateemployees);
         IdEditText=findViewById(R.id.IdEditText);
+        QuestionButton=findViewById(R.id.QuestionButton);
 
     }
 

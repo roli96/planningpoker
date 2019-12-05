@@ -15,20 +15,20 @@ import android.widget.TextView;
 import com.example.scrumpoker.R;
 
 
-public class Question_Fragmant extends Fragment  {
+public class EmployesRateFragment extends Fragment  {
 
     private static  final String Emplyees="employees";
     private String mText;
-    private Question_Fragmant.OnFragmentInteractionListener mListener;
+    private EmployesRateFragment.OnFragmentInteractionListener mListener;
     private TextView EmployeesText;
     private Button buttonFragment;
 
-    public Question_Fragmant() {
+    public EmployesRateFragment() {
     }
 
 
-    public static Question_Fragmant newInstance(String employees) {
-        Question_Fragmant fragment = new Question_Fragmant();
+    public static EmployesRateFragment newInstance(String employees) {
+        EmployesRateFragment fragment = new EmployesRateFragment();
         Bundle args = new Bundle();
         args.putString(Emplyees,employees);
         fragment.setArguments(args);///
@@ -66,8 +66,8 @@ public class Question_Fragmant extends Fragment  {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof Question_Fragmant.OnFragmentInteractionListener) {
-            mListener = (Question_Fragmant.OnFragmentInteractionListener) context;
+        if (context instanceof EmployesRateFragment.OnFragmentInteractionListener) {
+            mListener = (EmployesRateFragment.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
