@@ -26,30 +26,70 @@ public class CreateSessionActivity extends AppCompatActivity {
     private Button createButton;
     private int lastKey;
     private String proba="123456";
+    int a;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_create_session);
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("SESSION");
+
+
         inicialize();
         getSessionLastKey();
+
+
+
+
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 createSession();
+
+                Query query = mDatabaseReference.orderByChild("ownerName").limitToFirst(1);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot child:dataSnapshot.getChildren()){
+                            Log.i("FBDB","KEY: "+child.getKey()+" OWNERNAME: "+child.child("ownerName").getValue());
+
+                            if(sessionNameEditText.getText().toString()==child.child("ownerName").getValue()){
+                                a=Integer.parseInt(child.getKey());
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
                 Log.i("FBDB","Create "+getLastKey());
-                if(sessionOwnerNameEditText.getText().toString().isEmpty()){   //Test if text view is empty
-                    Toast.makeText(getApplicationContext(),"Already Empty !!!", Toast.LENGTH_SHORT).show();
-                }else{
-                if(sessionNameEditText.getText().toString().equals("123456")) {    // Test if admin cod is correct
-                    Intent intent = new Intent(CreateSessionActivity.this, Owner_Start.class);
-                    intent.putExtra("com.example.scrumpoker.ownerName",sessionOwnerNameEditText.getText().toString());
-                    intent.putExtra("com.example.scrumpoker.sessionId",getLastKey());
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(getApplicationContext(),"Incorrect Admin Cod. Please try it again", Toast.LENGTH_SHORT).show();
-                }}
+
+                     if(sessionOwnerNameEditText.getText().toString().isEmpty()){   //Test if text view is empty
+                               Toast.makeText(getApplicationContext(),"Already Empty !!!", Toast.LENGTH_SHORT).show();
+                     } else{
+                         if(sessionNameEditText.getText().toString().equals("123456")) {    // Test if admin cod is correct
+                             Intent intent = new Intent(CreateSessionActivity.this, Owner_Start.class);
+                             intent.putExtra("com.example.scrumpoker.ownerName",sessionOwnerNameEditText.getText().toString());
+                             if(a==0) {
+                                 intent.putExtra("com.example.scrumpoker.sessionId", getLastKey());
+                             }else {
+                                 intent.putExtra("com.example.scrumpoker.sessionId", a);
+                             }
+                             startActivity(intent);
+                         } else{
+                             Toast.makeText(getApplicationContext(),"Incorrect Admin Cod. Please try it again", Toast.LENGTH_SHORT).show();
+                         }
+                     }
+
 
             }
         });
