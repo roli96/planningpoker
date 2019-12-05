@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.scrumpoker.Objects.Employee;
 import com.example.scrumpoker.Objects.FirebaseRealtimeDatabaseHelper;
 import com.example.scrumpoker.R;
 
@@ -28,6 +29,7 @@ public class EmployeeActivity extends AppCompatActivity {
         final Button customButton1 = findViewById(R.id.custom_button1);
         final TextView textView=findViewById(R.id.sendText);
         final EditText questionText = findViewById(R.id.questionText);
+        final TextView employees = findViewById(R.id.Employees);
 
         Intent intent= getIntent();
         final String employeeName = intent.getStringExtra(JoinSessionActivity.EXTRA_EMPLOYEE_NAME);
@@ -36,10 +38,11 @@ public class EmployeeActivity extends AppCompatActivity {
 
         String IdQuestion=getIntent().getStringExtra("IdQuestion");
         counter=0;
-
+        employees.setText(employeeName);
         new CountDownTimer(2000, 1000) {  //polling slow-down
             public void onFinish() {
                 questionText.setText(fb.getSession().getQuestions().get(Integer.parseInt(fb.getSession().getActiv())-1).getQuestion());
+
             }
 
             public void onTick(long millisUntilFinished) {

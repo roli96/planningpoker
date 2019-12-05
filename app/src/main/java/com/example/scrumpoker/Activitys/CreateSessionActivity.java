@@ -26,7 +26,7 @@ public class CreateSessionActivity extends AppCompatActivity {
     private Button createButton;
     private int lastKey;
     private String proba="123456";
-    int a;
+    int a=0;
 
 
     @Override
@@ -106,13 +106,14 @@ public class CreateSessionActivity extends AppCompatActivity {
     }
 
     private void createSession()   //update to database
-    {
+    {   if(a==0) {
         getSessionLastKey();
-        Log.i("FBDB","session_last_ID: "+getLastKey());
+        Log.i("FBDB", "session_last_ID: " + getLastKey());
 
         mDatabaseReference.child(String.valueOf(++lastKey)).child("ownerName").setValue(sessionOwnerNameEditText.getText().toString());
         mDatabaseReference.child(String.valueOf(lastKey)).child("sessionName").setValue(sessionNameEditText.getText().toString());
         mDatabaseReference.child(String.valueOf(lastKey)).child("sessionId").setValue(lastKey);
+    }
     }
 
     private void getSessionLastKey() //search last session id
