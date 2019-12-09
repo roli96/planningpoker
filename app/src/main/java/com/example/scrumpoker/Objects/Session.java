@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Session {
     private String ownerName;
     private String activ;
+    private String numberemployees,aktivemployees;
     private String sessionName;
     private String sessionId;
     private ArrayList<Question> questions;
@@ -23,12 +24,28 @@ public class Session {
         return activ;
     }
 
+    public String getnumberemployees() {
+        return numberemployees;
+    }
+
+    public String getaktivemployees() {
+        return aktivemployees;
+    }
+
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
     }
 
     public void setActiv(String activ) {
         this.activ = activ;
+    }
+
+    public void setnumberemployees(String activ) {
+        this.numberemployees = numberemployees;
+    }
+
+    public void setaktivemployees(String activ) {
+        this.aktivemployees = aktivemployees;
     }
 
     public String getSessionName() {

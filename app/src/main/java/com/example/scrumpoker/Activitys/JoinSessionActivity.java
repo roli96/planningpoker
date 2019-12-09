@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.scrumpoker.Objects.FirebaseRealtimeDatabaseHelper;
 import com.example.scrumpoker.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,6 +22,7 @@ public class JoinSessionActivity extends AppCompatActivity {
     private Button joinButton;
     public static final String EXTRA_EMPLOYEE_NAME = "com.example.scrumpoker.Employee";
     public static final String EXTRA_SESSION_ID = "com.example.scrumpoker.ID";
+    FirebaseRealtimeDatabaseHelper fbdb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,7 @@ public class JoinSessionActivity extends AppCompatActivity {
 
 
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("SESSION");
+        fbdb = new FirebaseRealtimeDatabaseHelper(String.valueOf(EXTRA_SESSION_ID));
 
         inicialize();
 
@@ -45,9 +48,10 @@ public class JoinSessionActivity extends AppCompatActivity {
     }
 
     public void joinButton (View view){
-        if((sessionEmployeNameEditText.getText().toString().isEmpty())&&(sessionIdEditText.getText().toString().isEmpty())){
-            Toast.makeText(getApplicationContext(),"Nick name or room id is empty!!!",Toast.LENGTH_SHORT).show();
+        if((sessionEmployeNameEditText.getText().toString().isEmpty())&&(sessionIdEditText.getText().toString().isEmpty())&&(!fbdb.getSession().getnumberemployees().equals(fbdb.getSession().getaktivemployees().toString()))){
+            Toast.makeText(getApplicationContext(),"Nick name or room id is !!!",Toast.LENGTH_SHORT).show();
         }else{
+            mDatabaseReference.child(String.valueOf(EXTRA_SESSION_ID)).child("aktivemployees").setValue(fbdb.getSession().getaktivemployees().toString()+1);
         joinSession();
         Intent intent = new Intent(JoinSessionActivity.this,EmployeeActivity.class);
         intent.putExtra(EXTRA_EMPLOYEE_NAME,sessionEmployeNameEditText.getText().toString());

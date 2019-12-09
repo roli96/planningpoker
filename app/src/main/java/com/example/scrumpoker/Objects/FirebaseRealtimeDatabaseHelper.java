@@ -49,6 +49,16 @@ public class FirebaseRealtimeDatabaseHelper {
                     session.setActiv(dataSnapshot.getValue().toString());
                     Log.i("FBDB","onChildAdded/activ: "+dataSnapshot.getValue());
                 }
+                if (key.equals("aktivemployees"))
+                {
+                    session.setActiv(dataSnapshot.getValue().toString());
+                    Log.i("FBDB","onChildAdded/aktivemployees: "+dataSnapshot.getValue());
+                }
+                if (key.equals("numberemployees"))
+                {
+                    session.setActiv(dataSnapshot.getValue().toString());
+                    Log.i("FBDB","onChildAdded/numberemployees: "+dataSnapshot.getValue());
+                }
                 if (key.equals("sessionId"))
                 {
                     session.setSessionId(dataSnapshot.getValue().toString());
@@ -110,6 +120,16 @@ public class FirebaseRealtimeDatabaseHelper {
                 {
                     session.setActiv(dataSnapshot.getValue().toString());
                     Log.i("FBDB","onChildAdded/activ: "+dataSnapshot.getValue());
+                }
+                if (key.equals("numberemployees"))
+                {
+                    session.setnumberemployees(dataSnapshot.getValue().toString());
+                    Log.i("FBDB","onChildAdded/numberemployees: "+dataSnapshot.getValue());
+                }
+                if (key.equals("aktivemployees"))
+                {
+                    session.setaktivemployees(dataSnapshot.getValue().toString());
+                    Log.i("FBDB","onChildAdded/aktivemployees: "+dataSnapshot.getValue());
                 }
                 if (key.equals("sessionId"))
                 {

@@ -151,6 +151,20 @@
                             android:hint="One Number"
                             android:inputType="textPersonName" />
 
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Set the number of employees." />
+
+                        <EditText
+                            android:id="@+id/NumEmployes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="One Number"
+                            android:inputType="textPersonName" />
+
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">

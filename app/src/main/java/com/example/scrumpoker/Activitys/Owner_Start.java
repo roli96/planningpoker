@@ -34,7 +34,7 @@ public class Owner_Start extends AppCompatActivity implements EmployesRateFragme
     private FrameLayout fragmentContainer,fragmentContainer2;
     private TextView questionView;
     private Button viewrate,QuestionButton;
-    private EditText IdEditText;
+    private EditText IdEditText,employeesnumber;
     private DatabaseReference mDatabaseReference;
     FirebaseRealtimeDatabaseHelper fbdb;
     int a=0;
@@ -87,19 +87,31 @@ public class Owner_Start extends AppCompatActivity implements EmployesRateFragme
 
             String Text=newquestionEditText.getText().toString();
             String text=IdEditText.getText().toString();
+            String textnumbemployees=employeesnumber.getText().toString();
+
             int qid = fbdb.getSession().getQuestions().size();
             fbdb.addQuestion(String.valueOf(s2),new Question(String.valueOf(qid+1),"ddd",newquestionEditText.getText().toString()));
 
-            if(!Text.isEmpty() && text.isEmpty()){
+            if(!Text.isEmpty() && text.isEmpty() && !textnumbemployees.isEmpty()){
                 mDatabaseReference.child(String.valueOf(s2)).child("activ").setValue(fbdb.getSession().getQuestions().size());///set activ
+                mDatabaseReference.child(String.valueOf(s2)).child("aktivemployees").setValue(0);
+                mDatabaseReference.child(String.valueOf(s2)).child("numberemployees").setValue(IdEditText.getText().toString());///set number
                 newquestionEditText.setText("");
                 questionView.setText(Text);
-            }else if(Text.isEmpty() && !text.isEmpty()){
+            }else if(Text.isEmpty() && !text.isEmpty() && !textnumbemployees.isEmpty()){
                 mDatabaseReference.child(String.valueOf(s2)).child("activ").setValue(IdEditText.getText().toString());///set activ
+                mDatabaseReference.child(String.valueOf(s2)).child("aktivemployees").setValue(0);
+                mDatabaseReference.child(String.valueOf(s2)).child("numberemployees").setValue(IdEditText.getText().toString());///set number
                 newquestionEditText.setText("");
                 questionView.setText(Text);
-            }else if(Text.isEmpty() && text.isEmpty()) {
+            }else if(Text.isEmpty() && text.isEmpty() && textnumbemployees.isEmpty()) {
                 Toast.makeText(getApplicationContext(),"Field is empty",Toast.LENGTH_SHORT).show();
+            }else if(!Text.isEmpty() && text.isEmpty() && textnumbemployees.isEmpty())
+            {
+                Toast.makeText(getApplicationContext(),"Set number of employees!",Toast.LENGTH_SHORT).show();
+            }else if(Text.isEmpty() && !text.isEmpty() && textnumbemployees.isEmpty())
+            {
+                Toast.makeText(getApplicationContext(),"Set number of employees!",Toast.LENGTH_SHORT).show();
             }
 
            a++;
@@ -184,6 +196,7 @@ public class Owner_Start extends AppCompatActivity implements EmployesRateFragme
         viewrate=findViewById(R.id.viewrateemployees);
         IdEditText=findViewById(R.id.IdEditText);
         QuestionButton=findViewById(R.id.QuestionButton);
+        employeesnumber=findViewById(R.id.NumEmployes);
 
     }
 
