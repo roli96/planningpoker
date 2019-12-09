@@ -46,7 +46,7 @@ public class JoinSessionActivity extends AppCompatActivity {
 
     public void joinButton (View view){
         if((sessionEmployeNameEditText.getText().toString().isEmpty())&&(sessionIdEditText.getText().toString().isEmpty())){
-            Toast.makeText(getApplicationContext(),"Already Empty !!!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Nick name or room id is empty!!!",Toast.LENGTH_SHORT).show();
         }else{
         joinSession();
         Intent intent = new Intent(JoinSessionActivity.this,EmployeeActivity.class);

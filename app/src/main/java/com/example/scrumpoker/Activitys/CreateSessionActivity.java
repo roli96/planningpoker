@@ -74,7 +74,7 @@ public class CreateSessionActivity extends AppCompatActivity {
                 Log.i("FBDB","Create "+getLastKey());
 
                      if(sessionOwnerNameEditText.getText().toString().isEmpty()){   //Test if text view is empty
-                               Toast.makeText(getApplicationContext(),"Already Empty !!!", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(getApplicationContext(),"Nick name field is empty !!!", Toast.LENGTH_SHORT).show();
                      } else{
                          if(sessionNameEditText.getText().toString().equals("123456")) {    // Test if admin cod is correct
                              Intent intent = new Intent(CreateSessionActivity.this, Owner_Start.class);

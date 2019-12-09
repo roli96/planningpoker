@@ -78,22 +78,29 @@ public class Owner_Start extends AppCompatActivity implements EmployesRateFragme
 
     fragmentContainer = (FrameLayout) findViewById(R.id.questionFragmant);
 
+
+
     sendButton.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
 
             String Text=newquestionEditText.getText().toString();
+            String text=IdEditText.getText().toString();
             int qid = fbdb.getSession().getQuestions().size();
             fbdb.addQuestion(String.valueOf(s2),new Question(String.valueOf(qid+1),"ddd",newquestionEditText.getText().toString()));
-            mDatabaseReference.child(String.valueOf(s2)).child("activ").setValue(IdEditText.getText().toString());///set activ
-            if(Text.isEmpty()){
-                Toast.makeText(getApplicationContext(),"Already Empty !!!",Toast.LENGTH_SHORT).show();
-            }else{
-                newquestionEditText.setText("");
-            }
-            questionView.setText(Text);
 
+            if(!Text.isEmpty() && text.isEmpty()){
+                mDatabaseReference.child(String.valueOf(s2)).child("activ").setValue(fbdb.getSession().getQuestions().size());///set activ
+                newquestionEditText.setText("");
+                questionView.setText(Text);
+            }else if(Text.isEmpty() && !text.isEmpty()){
+                mDatabaseReference.child(String.valueOf(s2)).child("activ").setValue(IdEditText.getText().toString());///set activ
+                newquestionEditText.setText("");
+                questionView.setText(Text);
+            }else if(Text.isEmpty() && text.isEmpty()) {
+                Toast.makeText(getApplicationContext(),"Field is empty",Toast.LENGTH_SHORT).show();
+            }
 
            a++;
 
