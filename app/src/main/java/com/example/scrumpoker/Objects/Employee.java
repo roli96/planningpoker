@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Employee {
     private String employeeName;
     private ArrayList<QuestionResult> questionResults;
-    // a felhasznalokal valo muveketek kezelese 
+    // a felhasznalokal valo muveketek kezelese
     public Employee() {
     }
 

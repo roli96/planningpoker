@@ -75,7 +75,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
                 android:ems="10"
-                android:hint="@string/sessionOwnerNameEditText"
+                android:hint="nickname"
                 android:inputType="textPersonName"
                 android:selectAllOnFocus="false" />
 
