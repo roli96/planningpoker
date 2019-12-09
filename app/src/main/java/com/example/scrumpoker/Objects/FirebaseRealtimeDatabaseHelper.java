@@ -32,7 +32,7 @@ public class FirebaseRealtimeDatabaseHelper {
         this.session = session;
     }
 
-    public void getDatabaseSessionData(String sessionID){
+    public void getDatabaseSessionData(String sessionID){ /// az adatbazishoz valo hoza feres le egyszerusitese fugvenyekre
         query = mDatabaseReference.child(sessionID);
         query.addChildEventListener(new ChildEventListener() {
             @Override

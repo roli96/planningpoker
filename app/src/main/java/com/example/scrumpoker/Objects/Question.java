@@ -2,7 +2,7 @@ package com.example.scrumpoker.Objects;
 
 public class Question{
     private String questionId,questionDescription,question;
-
+     // a kerdesekel valo muveletek kezelese
     public Question() {
     }
 

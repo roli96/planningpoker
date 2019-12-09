@@ -15,7 +15,7 @@ public class Session {
         questions = new ArrayList<>();
         employees = new ArrayList<>();
     }
-
+    /// az adatbazishoz valo hoza feres le egyszerusitese fugvenyekre
     public String getOwnerName() {
         return ownerName;
     }

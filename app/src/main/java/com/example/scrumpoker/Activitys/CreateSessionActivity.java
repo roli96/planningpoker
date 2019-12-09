@@ -52,7 +52,7 @@ public class CreateSessionActivity extends AppCompatActivity {
 
                 Query query = mDatabaseReference.orderByChild("ownerName").limitToFirst(1);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
+                    @Override   //teszteljuk ha letezik a meg adot felhasznalo nev (ownername) es ha igen akkor  az idijat mentjuk egy valtozoba.
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot child:dataSnapshot.getChildren()){
                             Log.i("FBDB","KEY: "+child.getKey()+" OWNERNAME: "+child.child("ownerName").getValue());
@@ -73,6 +73,7 @@ public class CreateSessionActivity extends AppCompatActivity {
 
                 Log.i("FBDB","Create "+getLastKey());
 
+                        // teszteljuk ,meg hivjuk a kovetkezo activityt es figyelembe veszuk, hogy letezik mar a felhasznalo nev vagy sem
                      if(sessionOwnerNameEditText.getText().toString().isEmpty()){   //Test if text view is empty
                                Toast.makeText(getApplicationContext(),"Nick name field is empty !!!", Toast.LENGTH_SHORT).show();
                      } else{
@@ -118,7 +119,7 @@ public class CreateSessionActivity extends AppCompatActivity {
     }
 
     private void getSessionLastKey() //search last session id
-    {
+    {   //az adatbazis utolso id-ijanak le kerese
         Query query = mDatabaseReference.orderByChild("Session_ID").limitToLast(1);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

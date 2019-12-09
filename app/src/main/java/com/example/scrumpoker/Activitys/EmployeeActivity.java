@@ -50,7 +50,7 @@ public class EmployeeActivity extends AppCompatActivity {
             }
         }.start();
 
-
+        // szavazo gombok implementalasa
         customButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,7 +104,7 @@ public class EmployeeActivity extends AppCompatActivity {
         });
 
         final Button sendButton=findViewById(R.id.sendButton);
-
+        //szavazas hoza adasa az adatbazishoz
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {   //update rate

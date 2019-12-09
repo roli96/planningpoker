@@ -46,7 +46,7 @@ public class JoinSessionActivity extends AppCompatActivity {
         });*/
 
     }
-
+      //itt teszteljuk azt is ,hogy hany felhasznalonk van.
     public void joinButton (View view){
         if((sessionEmployeNameEditText.getText().toString().isEmpty())&&(sessionIdEditText.getText().toString().isEmpty())&&(!fbdb.getSession().getnumberemployees().equals(fbdb.getSession().getaktivemployees().toString()))){
             Toast.makeText(getApplicationContext(),"Nick name or room id is !!!",Toast.LENGTH_SHORT).show();

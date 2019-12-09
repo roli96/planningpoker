@@ -37,7 +37,7 @@ public class Owner_Start extends AppCompatActivity implements EmployesRateFragme
     private EditText IdEditText,employeesnumber;
     private DatabaseReference mDatabaseReference;
     FirebaseRealtimeDatabaseHelper fbdb;
-    int a=0;
+    int a=0,b=0;
 
 @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +91,7 @@ public class Owner_Start extends AppCompatActivity implements EmployesRateFragme
 
             int qid = fbdb.getSession().getQuestions().size();
             fbdb.addQuestion(String.valueOf(s2),new Question(String.valueOf(qid+1),"ddd",newquestionEditText.getText().toString()));
-
+              // ures mezok tesztelese , szukseges almonyzok fel toltese adatbazisba.(aktiv keredes szama,kivant felhasznalok szama).
             if(!Text.isEmpty() && text.isEmpty() && !textnumbemployees.isEmpty()){
                 mDatabaseReference.child(String.valueOf(s2)).child("activ").setValue(fbdb.getSession().getQuestions().size());///set activ
                 mDatabaseReference.child(String.valueOf(s2)).child("aktivemployees").setValue(0);
@@ -114,20 +114,19 @@ public class Owner_Start extends AppCompatActivity implements EmployesRateFragme
                 Toast.makeText(getApplicationContext(),"Set number of employees!",Toast.LENGTH_SHORT).show();
             }
 
-           a++;
-
+            a++;
         }
     });
 
-    viewrate.setOnClickListener(new View.OnClickListener() {
+    viewrate.setOnClickListener(new View.OnClickListener() {// szavazasok meg jelenitese
         @Override
         public void onClick(View v) {
             if(a==0){
                 Toast.makeText(getApplicationContext(),"First Send Question Pleas !!!",Toast.LENGTH_SHORT).show();
             }else{
                 String employees=fbdb.getSession().getEmployees().toString();
-                if(employees=="[]"){
-                    Toast.makeText(getApplicationContext(),"Wait for polls !!!",Toast.LENGTH_SHORT).show();
+                if(!fbdb.getSession().getnumberemployees().equals(fbdb.getSession().getaktivemployees().toString())){
+                    Toast.makeText(getApplicationContext(),"\n" + "Not everyone voted please wait!!!",Toast.LENGTH_SHORT).show();
                 }else {
                     openFragment(employees);
                 }
@@ -137,7 +136,7 @@ public class Owner_Start extends AppCompatActivity implements EmployesRateFragme
     });
 
 
-    QuestionButton.setOnClickListener(new View.OnClickListener() {
+    QuestionButton.setOnClickListener(new View.OnClickListener() {  // kerdesek meg jelenitese
         @Override
         public void onClick(View v) {
             String employees=fbdb.getSession().getQuestions().toString();
